@@ -43,18 +43,18 @@ namespace ZenDeskApi
         }
          
 
-		public T Execute<T>(ZenRestRequest request) where T : new()
-		{
+        public T Execute<T>(ZenRestRequest request) where T : new()
+        {
             var response = _client.Execute<T>(request);		    
-			return response.Data;
-		}
+            return response.Data;
+        }
 
         public RestResponse Execute(ZenRestRequest request)
-		{
-			var res = _client.Execute(request);
+        {
+            var res = _client.Execute(request);
             ValidateZenDeskRestResponse(res);
             return res;
-		}
+        }
 
         /// <summary>
         /// When using sso use this method to generate a url that logs a user in and returns them to the returnToUrl (if specified).

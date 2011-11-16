@@ -1,5 +1,5 @@
 *Updated 6/17/2011: This project in now in Nuget! (Also it seems the Zendesk is now sometimes returning json instead of xml so these bugs have been fixed).
-	- Also did some improvements on attachements.
+    - Also did some improvements on attachements.
 
 *Updated 2/16/2011: Fixed bug changed the TicketStatus to TicketStatusID.
 
@@ -21,7 +21,7 @@ Here is a list of the public methods, enjoy.
 
        
     int CreateEntry(int forumId, int submitterId, string title, 
-		string body, string currentTags, bool isLocked = false, bool isPinned = true);
+        string body, string currentTags, bool isLocked = false, bool isPinned = true);
     int CreateEntry(Entry entry);        
     int CreateOrUpdateForum(string name, string description, bool isLocked);
     int CreateOrUpdateForum(Forum forum);
@@ -32,7 +32,7 @@ Here is a list of the public methods, enjoy.
     int CreatePost(int entryId, int userId, string body);
     int CreatePost(Post post);
     int CreateOrUpdateUser(string email, string name, string password, 
-		Role role, RestrictedTo restrictionId, int[] groupIDs, bool isVerified = true);
+        Role role, RestrictedTo restrictionId, int[] groupIDs, bool isVerified = true);
     int CreateOrUpdateUser(User newUser);
     int CreateTicketAsEndUser(string endUserEmail, string subject, string description);
     int CreateTicketAsEndUser(string endUserEmail, Ticket ticket);      
