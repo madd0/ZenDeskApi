@@ -16,6 +16,8 @@ namespace ZenDeskApi
 {
     public partial class ZenDeskApi
     {
+        private static readonly DateTime EpochStart = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+
         private const string  XOnBehalfOfEmail = "X-On-Behalf-Of";
         private RestClient _client;
         private string _user;
@@ -85,41 +87,24 @@ namespace ZenDeskApi
             return result;
         }
 
-        static double GetUnixEpoch(DateTime dateTime)
+        static long GetUnixEpoch(DateTime dateTime)
         {
-            var unixTime = dateTime.ToUniversalTime() -
-                new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+            var unixTime = dateTime.ToUniversalTime() - EpochStart;
 
-            return unixTime.TotalSeconds;
+            return (long)unixTime.TotalSeconds;
         }
 
 
         static string Md5(string strChange)
         {
-            //Change the syllable into UTF8 code
-            byte[] pass = Encoding.UTF8.GetBytes(strChange);
+            string hashed;
 
-            MD5 md5 = new MD5CryptoServiceProvider();
-            md5.ComputeHash(pass);
-            string strPassword = ByteArrayToHexString(md5.Hash);
-            return strPassword;
-        }
-
-        static string ByteArrayToHexString(byte[] Bytes)
-        {
-            // important bit, you have to change the byte array to hex string or zenddesk will reject
-            StringBuilder Result;
-            string HexAlphabet = "0123456789abcdef";
-
-            Result = new StringBuilder();
-
-            foreach (byte B in Bytes)
+            using (MD5 md5 = MD5.Create())
             {
-                Result.Append(HexAlphabet[(int)(B >> 4)]);
-                Result.Append(HexAlphabet[(int)(B & 0xF)]);
+                hashed = string.Join(string.Empty, md5.ComputeHash(Encoding.UTF8.GetBytes(strChange)).Select(b => b.ToString("x2")));
             }
 
-            return Result.ToString();
+            return hashed;
         }
 
         /// <summary>
