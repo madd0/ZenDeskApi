@@ -8,7 +8,7 @@ using ZenDeskApi.XmlSerializers;
 
 namespace ZenDeskApi
 {
-    public partial class ZenDeskApi
+    public partial class ZenDeskClient
     {
         private const string Tickets = "tickets";
         private const string Requests = "requests";

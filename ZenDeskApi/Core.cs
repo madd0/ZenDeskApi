@@ -14,7 +14,7 @@ using ZenDeskApi.XmlSerializers;
 
 namespace ZenDeskApi
 {
-    public partial class ZenDeskApi
+    public partial class ZenDeskClient
     {
         private static readonly DateTime EpochStart = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
 
@@ -30,7 +30,7 @@ namespace ZenDeskApi
         /// <param name="yourZenDeskUrl"></param>
         /// <param name="user"></param>
         /// <param name="password"></param>
-        public ZenDeskApi(string yourZenDeskUrl, string user, string password)
+        public ZenDeskClient(string yourZenDeskUrl, string user, string password)
         {
             _user = user;
             _password = password;

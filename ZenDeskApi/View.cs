@@ -7,7 +7,7 @@ using ZenDeskApi.Model;
 
 namespace ZenDeskApi
 {
-    public partial class ZenDeskApi
+    public partial class ZenDeskClient
     {
         public List<View> GetViews()
         {
