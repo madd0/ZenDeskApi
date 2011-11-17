@@ -131,7 +131,8 @@ namespace ZenDeskApi
 
         protected void ValidateZenDeskRestResponse(RestResponse response)
         {
-            if (response.StatusCode == System.Net.HttpStatusCode.NotAcceptable)
+            if (response.StatusCode == System.Net.HttpStatusCode.NotAcceptable ||
+                response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
             {
                 string error = "ZenDesk could not handle the input you gave it";
                 try
@@ -143,7 +144,7 @@ namespace ZenDeskApi
                 catch (Exception)
                 { }
 
-                throw new ZenDeskNotAcceptableInputException(error);
+                throw new ZenDeskException(error);
             }
         }
 
@@ -191,9 +192,9 @@ namespace ZenDeskApi
         }
     }
 
-    public class ZenDeskNotAcceptableInputException : Exception
+    public class ZenDeskException : Exception
     {
-        public ZenDeskNotAcceptableInputException(string message)
+        public ZenDeskException(string message)
             : base(message)
         { }
     }

@@ -166,7 +166,7 @@ namespace ZenDeskApi
 
 
         /// <summary>
-        /// Throws a ZenDeskNotAcceptableInputException if the twitter account doesn't exist or is already assigned to someone else.
+        /// Throws a ZenDeskException if the twitter account doesn't exist or is already assigned to someone else.
         /// </summary>
         /// <param name="userId"></param>
         /// <param name="twitterHandle"></param>
