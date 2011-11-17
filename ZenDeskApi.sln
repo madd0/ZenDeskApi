@@ -3,15 +3,20 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZenDeskApi", "ZenDeskApi\ZenDeskApi.csproj", "{4F440DDF-8B14-4B30-981F-CA4A3D9A80AA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZenDeskApi (3.5)", "ZenDeskApi (3.5)\ZenDeskApi (3.5).csproj", "{00BCFD09-228E-4BA6-BBD1-E11BD8DFE639}"
+EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 2
+		SccNumberOfProjects = 3
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 		SccTeamFoundationServer = http://lmktfs2010:8080/tfs/defaultcollection
 		SccLocalPath0 = .
 		SccProjectUniqueName1 = ZenDeskApi\\ZenDeskApi.csproj
 		SccProjectName1 = ZenDeskApi
 		SccLocalPath1 = ZenDeskApi
+		SccProjectUniqueName2 = ZenDeskApi\u0020(3.5)\\ZenDeskApi\u0020(3.5).csproj
+		SccProjectName2 = ZenDeskApi\u0020(3.5)
+		SccLocalPath2 = ZenDeskApi\u0020(3.5)
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -22,6 +27,10 @@ Global
 		{4F440DDF-8B14-4B30-981F-CA4A3D9A80AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4F440DDF-8B14-4B30-981F-CA4A3D9A80AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4F440DDF-8B14-4B30-981F-CA4A3D9A80AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00BCFD09-228E-4BA6-BBD1-E11BD8DFE639}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00BCFD09-228E-4BA6-BBD1-E11BD8DFE639}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00BCFD09-228E-4BA6-BBD1-E11BD8DFE639}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00BCFD09-228E-4BA6-BBD1-E11BD8DFE639}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

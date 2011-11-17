@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{00BCFD09-228E-4BA6-BBD1-E11BD8DFE639}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZenDeskApi</RootNamespace>
+    <AssemblyName>ZenDeskApi</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Output\3.5\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;NET_35</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Output\3.5\Release\</OutputPath>
+    <DefineConstants>TRACE;NET_35</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json.Net35">
+      <HintPath>..\lib\Newtonsoft.Json.Net35.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp">
+      <HintPath>..\lib\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\ZenDeskApi\Attachment.cs">
+      <Link>Attachment.cs</Link>
+    </Compile>
+    <Compile Include="..\ZenDeskApi\Core.cs">
+      <Link>Core.cs</Link>
+    </Compile>
+    <Compile Include="..\ZenDeskApi\EntriesAndPosts.cs">
+      <Link>EntriesAndPosts.cs</Link>
+    </Compile>
+    <Compile Include="..\ZenDeskApi\Forum.cs">
+      <Link>Forum.cs</Link>
+    </Compile>
+    <Compile Include="..\ZenDeskApi\Group.cs">
+      <Link>Group.cs</Link>
+    </Compile>
+    <Compile Include="..\ZenDeskApi\Macro.cs">
+      <Link>Macro.cs</Link>
+    </Compile>
+    <Compile Include="..\ZenDeskApi\Organization.cs">
+      <Link>Organization.cs</Link>
+    </Compile>
+    <Compile Include="..\ZenDeskApi\Tag.cs">
+      <Link>Tag.cs</Link>
+    </Compile>
+    <Compile Include="..\ZenDeskApi\Ticket.cs">
+      <Link>Ticket.cs</Link>
+    </Compile>
+    <Compile Include="..\ZenDeskApi\TicketField.cs">
+      <Link>TicketField.cs</Link>
+    </Compile>
+    <Compile Include="..\ZenDeskApi\User.cs">
+      <Link>User.cs</Link>
+    </Compile>
+    <Compile Include="..\ZenDeskApi\View.cs">
+      <Link>View.cs</Link>
+    </Compile>
+    <Compile Include="..\ZenDeskApi\ZenRestRequest.cs">
+      <Link>ZenRestRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\ZenDeskApi\JsonSerializers\ZenDeskJsonDeserializer.cs">
+      <Link>JsonSerializers\ZenDeskJsonDeserializer.cs</Link>
+    </Compile>
+    <Compile Include="..\ZenDeskApi\Model\Attachment.cs">
+      <Link>Model\Attachment.cs</Link>
+    </Compile>
+    <Compile Include="..\ZenDeskApi\Model\Comment.cs">
+      <Link>Model\Comment.cs</Link>
+    </Compile>
+    <Compile Include="..\ZenDeskApi\Model\Macro.cs">
+      <Link>Model\Macro.cs</Link>
+    </Compile>
+    <Compile Include="..\ZenDeskApi\Model\Post.cs">
+      <Link>Model\Post.cs</Link>
+    </Compile>
+    <Compile Include="..\ZenDeskApi\Model\Tag.cs">
+      <Link>Model\Tag.cs</Link>
+    </Compile>
+    <Compile Include="..\ZenDeskApi\Model\TicketField.cs">
+      <Link>Model\TicketField.cs</Link>
+    </Compile>
+    <Compile Include="..\ZenDeskApi\Model\UserEmailIdentity.cs">
+      <Link>Model\UserEmailIdentity.cs</Link>
+    </Compile>
+    <Compile Include="..\ZenDeskApi\Model\View.cs">
+      <Link>Model\View.cs</Link>
+    </Compile>
+    <Compile Include="..\ZenDeskApi\Model\Entry.cs">
+      <Link>Model\Entry.cs</Link>
+    </Compile>
+    <Compile Include="..\ZenDeskApi\Model\Forum.cs">
+      <Link>Model\Forum.cs</Link>
+    </Compile>
+    <Compile Include="..\ZenDeskApi\Model\Group.cs">
+      <Link>Model\Group.cs</Link>
+    </Compile>
+    <Compile Include="..\ZenDeskApi\Model\Organization.cs">
+      <Link>Model\Organization.cs</Link>
+    </Compile>
+    <Compile Include="..\ZenDeskApi\Model\Ticket.cs">
+      <Link>Model\Ticket.cs</Link>
+    </Compile>
+    <Compile Include="..\ZenDeskApi\Model\User.cs">
+      <Link>Model\User.cs</Link>
+    </Compile>
+    <Compile Include="..\ZenDeskApi\XmlSerializers\ZendDeskSerializationAttribute.cs">
+      <Link>XmlSerializers\ZendDeskSerializationAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\ZenDeskApi\XmlSerializers\ZenDeskXmlDeserializer.cs">
+      <Link>XmlSerializers\ZenDeskXmlDeserializer.cs</Link>
+    </Compile>
+    <Compile Include="..\ZenDeskApi\XmlSerializers\ZenDeskXmlExtensions.cs">
+      <Link>XmlSerializers\ZenDeskXmlExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\ZenDeskApi\XmlSerializers\ZenDeskXmlSerializer.cs">
+      <Link>XmlSerializers\ZenDeskXmlSerializer.cs</Link>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

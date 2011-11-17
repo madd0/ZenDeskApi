@@ -18,7 +18,7 @@ namespace ZenDeskApi
     {
         private static readonly DateTime EpochStart = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
 
-        private const string  XOnBehalfOfEmail = "X-On-Behalf-Of";
+        private const string XOnBehalfOfEmail = "X-On-Behalf-Of";
         private RestClient _client;
         private string _user;
         private string _password;
@@ -41,13 +41,13 @@ namespace ZenDeskApi
             _client.AddHandler("application/xml; charset=utf-8", new ZenDeskXmlDeserializer());
             _client.AddHandler("application/xml", new ZenDeskXmlDeserializer());
             _client.AddHandler("application/json; charset=utf-8", new ZenDeskJsonDeserializer());
-            _client.AddHandler("application/json", new ZenDeskJsonDeserializer());                        
+            _client.AddHandler("application/json", new ZenDeskJsonDeserializer());
         }
-         
+
 
         public T Execute<T>(ZenRestRequest request) where T : new()
         {
-            var response = _client.Execute<T>(request);		    
+            var response = _client.Execute<T>(request);
             return response.Data;
         }
 
@@ -97,21 +97,24 @@ namespace ZenDeskApi
 
         static string Md5(string strChange)
         {
-            string hashed;
+            StringBuilder hashed = new StringBuilder();
 
             using (MD5 md5 = MD5.Create())
             {
-                hashed = string.Join(string.Empty, md5.ComputeHash(Encoding.UTF8.GetBytes(strChange)).Select(b => b.ToString("x2")));
+                foreach (byte b in md5.ComputeHash(Encoding.UTF8.GetBytes(strChange)))
+                {
+                    hashed.Append(b.ToString("x2"));
+                }
             }
 
-            return hashed;
+            return hashed.ToString();
         }
 
         /// <summary>
         /// Gets the Collection
         /// </summary>
         /// <returns></returns>
-        public List<T> GetCollection<T>(string resource, string rootElement="")
+        public List<T> GetCollection<T>(string resource, string rootElement = "")
         {
             if (!resource.EndsWith(".xml"))
                 resource += ".xml";
@@ -128,7 +131,7 @@ namespace ZenDeskApi
 
         protected void ValidateZenDeskRestResponse(RestResponse response)
         {
-            if(response.StatusCode == System.Net.HttpStatusCode.NotAcceptable)
+            if (response.StatusCode == System.Net.HttpStatusCode.NotAcceptable)
             {
                 string error = "ZenDesk could not handle the input you gave it";
                 try
@@ -138,7 +141,7 @@ namespace ZenDeskApi
                     error = doc.DocumentElement["error"].FirstChild.Value;
                 }
                 catch (Exception)
-                {}
+                { }
 
                 throw new ZenDeskNotAcceptableInputException(error);
             }
@@ -149,12 +152,12 @@ namespace ZenDeskApi
             int id = -1;
 
             var h = res.Headers.Where(x => x.Name == "Location");
-            if(h.Count() > 0)
+            if (h.Count() > 0)
             {
                 string[] userUrl = h.First().Value.ToString().Split('/');
                 string idString = userUrl.Last().Replace(".xml", "").Split('-').First();
-                                
-                int.TryParse(idString, out id);                
+
+                int.TryParse(idString, out id);
             }
 
             return id;
@@ -190,7 +193,8 @@ namespace ZenDeskApi
 
     public class ZenDeskNotAcceptableInputException : Exception
     {
-        public ZenDeskNotAcceptableInputException(string message) : base(message)
+        public ZenDeskNotAcceptableInputException(string message)
+            : base(message)
         { }
     }
 }
