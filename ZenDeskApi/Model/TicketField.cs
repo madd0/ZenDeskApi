@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using ZenDeskApi.XmlSerializers;
 
 namespace ZenDeskApi.Model
 {
+    [ZenDeskSerialization(AlternateName = "record")]
     public class TicketField
     {
         public int AccountId { get; set; }
@@ -12,6 +14,7 @@ namespace ZenDeskApi.Model
         public string Description { get; set; }
         public int Id { get; set; }
         public bool IsActive { get; set; }
+        public bool IsCollapsedForAgents { get; set; }
         public bool IsEditableInPortal { get; set; }
         public bool IsRequired { get; set; }
         public bool IsRequiredInPortal { get; set; }
@@ -24,5 +27,13 @@ namespace ZenDeskApi.Model
         public string TitleInPortal { get; set; }
         public string Type { get; set; }
         public string UpdatedAt { get; set; }
+        public List<CustomFieldOption> CustomFieldOptions { get; set; }
+    }
+
+    [ZenDeskSerialization(Name = "custom-field-option")]
+    public class CustomFieldOption
+    {
+        public string Name { get; set; }
+        public string Value { get; set; }
     }
 }
